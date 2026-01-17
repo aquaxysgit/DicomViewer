@@ -1,8 +1,39 @@
 # 2026 1/17 code brief
+→ 3D Volume Viewer 표시
+→ 사용자 Distance 측정
+→ SR 파일 생성
+→ SR → PACS C-STORE 전송
+→ Measurement PDF Report 생성
+
+### 1. SR → PACS 전송
+
+#### **StoreSCUManager::SendSR()**
+
+```
+`DcmSCU scu; scu.sendSTORERequest()`
+```
+
+▶ DCMTK C-STORE SCU 수행  
+▶ PACS Association → SR 전송
+
+### 2 Measurement PDF Report 생성
+
+#### **PdfReportWriter::WritePDF()**
+
+```
+ofstream pdf
+```
+
+▶ Patient 정보 + Distance 리포트 출력
+
 
 
 
 # 2026/1/14 code brief
+
+→ 3D Volume Viewer 표시
+→ 사용자 Distance 측정
+→ SR 파일 생성
 
 ### 1. DICOM Series 로딩
 #### **DicomSeriesLoader::LoadSeries()**
