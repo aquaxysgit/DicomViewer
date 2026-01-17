@@ -9,6 +9,7 @@ reader->Update();
 m_volume = reader->GetOutput();
 ```
 ▷ 폴더 단위 DICOM 시리즈 로드
+
 ▷ VTK 이미지 볼륨(vtkImageData) 생성
 
 ### 2. 환자 및 Study 메타데이터 추출
@@ -30,7 +31,9 @@ vtkColorTransferFunction
 vtkPiecewiseFunction
 ```
 ▷ GPU RayCast 볼륨 렌더링
+
 ▷ 컬러/Opacity Transfer Function 적용
+
 ▷ 3D 볼륨 시각화
 
 ### 4. VTK 인터랙티브 Distance 측정
@@ -40,7 +43,9 @@ vtkDistanceWidget
 vtkDistanceRepresentation2D
 ```
 ▷ 마우스로 두 점 지정 거리 측정
+
 ▷ InteractionEvent 발생 시 거리 계산
+
 ▷ mm 단위 결과 저장
 
 ### 5. DICOM Structured Report (SR) 생성
@@ -50,8 +55,11 @@ DSRDocument sr;
 sr.createNewDocument(DT_EnhancedSR);
 ```
 ▷ Enhanced SR 문서 생성
+
 ▷ Patient / Study / Series 정보 매핑
+
 ▷ Measurement Report 컨셉 노드 생성
+
 ▷ Distance 수치(mm) 기록
 
 ### 6. SR 파일 저장
