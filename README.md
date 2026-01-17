@@ -1,9 +1,9 @@
 # 2026 1/17 code brief
-→ 3D Volume Viewer 표시
-→ 사용자 Distance 측정
-→ SR 파일 생성
-→ SR → PACS C-STORE 전송
-→ Measurement PDF Report 생성
+→ 3D Volume Viewer 표시  
+→ 사용자 Distance 측정  
+→ SR 파일 생성  
+→ SR → PACS C-STORE 전송  
+→ Measurement PDF Report 생성  
 
 ### 1. SR → PACS 전송
 
@@ -31,9 +31,9 @@ ofstream pdf
 
 # 2026/1/14 code brief
 
-→ 3D Volume Viewer 표시
-→ 사용자 Distance 측정
-→ SR 파일 생성
+→ 3D Volume Viewer 표시  
+→ 사용자 Distance 측정  
+→ SR 파일 생성  
 
 ### 1. DICOM Series 로딩
 #### **DicomSeriesLoader::LoadSeries()**
