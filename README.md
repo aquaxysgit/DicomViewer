@@ -1,4 +1,8 @@
-## 2026/1/14 code brief
+# 2026 1/17 code brief
+
+
+
+# 2026/1/14 code brief
 
 ### 1. DICOM Series 로딩
 #### **DicomSeriesLoader::LoadSeries()**
@@ -9,7 +13,6 @@ reader->Update();
 m_volume = reader->GetOutput();
 ```
 ▷ 폴더 단위 DICOM 시리즈 로드
-
 ▷ VTK 이미지 볼륨(vtkImageData) 생성
 
 ### 2. 환자 및 Study 메타데이터 추출
