@@ -1,9 +1,15 @@
-# make env VTK,  with vcpkg
+# make env VTK, DCMTK with vcpkg
 ```
 mkdir C:\vcpkg
 cd C:\vcpkg
 git clone https://github.com/microsoft/vcpkg .
 bootstrap-vcpkg.bat
+vcpkg integrate install
+```
+Applied user-wide integration for this vcpkg root.
+CMake projects should use: "-DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake"
+All MSBuild C++ projects can now #include any installed libraries. Linking will be handled automatically. Installing new libraries will make them instantly available.
+```
 vcpkg install vtk:x64-windows
 ```
 Computing installation plan...
@@ -11,6 +17,12 @@ A suitable version of cmake was not found (required v3.31.10).
 Downloading https://github.com/Kitware/CMake/releases/download/v3.31.10/cmake-3.31.10-windows-x86_64.zip -> cmake-3.31.10-windows-x86_64.zip
 Successfully downloaded cmake-3.31.10-windows-x86_64.zip
 Extracting cmake...
+...
+```
+vcpkg install dcmtk:x64-windows
+```
+
+**문서 하단 VTK, DCMTK 오류 해결 방법 추가**
 
 
 
