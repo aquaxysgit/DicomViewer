@@ -1,3 +1,19 @@
+# make env VTK,  with vcpkg
+```
+mkdir C:\vcpkg
+cd C:\vcpkg
+git clone https://github.com/microsoft/vcpkg .
+bootstrap-vcpkg.bat
+vcpkg install vtk:x64-windows
+```
+Computing installation plan...
+A suitable version of cmake was not found (required v3.31.10).
+Downloading https://github.com/Kitware/CMake/releases/download/v3.31.10/cmake-3.31.10-windows-x86_64.zip -> cmake-3.31.10-windows-x86_64.zip
+Successfully downloaded cmake-3.31.10-windows-x86_64.zip
+Extracting cmake...
+
+
+
 # 2026 1/17 code brief
 → 3D Volume Viewer 표시  
 → 사용자 Distance 측정  
