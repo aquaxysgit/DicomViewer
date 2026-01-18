@@ -16,7 +16,7 @@ Computing installation plan...
 A suitable version of cmake was not found (required v3.31.10).
 Downloading https://github.com/Kitware/CMake/releases/download/v3.31.10/cmake-3.31.10-windows-x86_64.zip -> cmake-3.31.10-windows-x86_64.zip
 Successfully downloaded cmake-3.31.10-windows-x86_64.zip
-Extracting cmake...
+Extracting cmake...  
 ...
 ```
 vcpkg install dcmtk:x64-windows
@@ -123,3 +123,52 @@ sr.createNewDocument(DT_EnhancedSR);
 sr.writeFile("Measurement_SR.dcm");
 ```
 ▶ 결과 SR을 로컬 DICOM 파일로 저장  
+
+
+## troubleshooting
+### VTK error
+CMake Error at scripts/cmake/vcpkg_execute_required_process.cmake:127 (message):
+    Command failed: C:\\vcpkg\\downloads\\tools\\**ninja-1.13.2-windows\\ninja.exe -v**
+    Working Directory: C:/vcpkg/buildtrees/vtk/x64-windows-rel/vcpkg-parallel-configure
+    Error code: 1
+    See logs for more information:
+      C:\vcpkg\buildtrees\vtk\config-x64-windows-dbg-CMakeCache.txt.log
+      C:\vcpkg\buildtrees\vtk\config-x64-windows-rel-CMakeCache.txt.log
+      C:\vcpkg\buildtrees\vtk\config-x64-windows-dbg-CMakeConfigureLog.yaml.log
+      C:\vcpkg\buildtrees\vtk\config-x64-windows-rel-CMakeConfigureLog.yaml.log
+      C:\vcpkg\buildtrees\vtk\config-x64-windows-out.log
+
+Call Stack (most recent call first):
+  installed/x64-windows/share/vcpkg-cmake/vcpkg_cmake_configure.cmake:269 (vcpkg_execute_required_process)
+  ports/vtk/portfile.cmake:262 (vcpkg_cmake_configure)
+  scripts/ports.cmake:206 (include)
+
+
+error: building vtk:x64-windows failed with: BUILD_FAILED
+See https://learn.microsoft.com/vcpkg/troubleshoot/build-failures?WT.mc_id=vcpkg_inproduct_cli for more information.
+Elapsed time to handle vtk:x64-windows: 19 s
+Please ensure you're using the latest port files with `git pull` and `vcpkg update`.
+Then check for known issues at:
+  https://github.com/microsoft/vcpkg/issues?q=is%3Aissue+is%3Aopen+in%3Atitle+vtk
+You can submit a new issue at:
+  https://github.com/microsoft/vcpkg/issues/new?title=%5Bvtk%5D%20build%20error%20on%20x64-windows&body=Copy%20issue%20body%20from%20C%3A%2Fvcpkg%2Finstalled%2Fvcpkg%2Fissue_body.md
+
+#### Ninja 수동설치
+```
+https://github.com/ninja-build/ninja/releases
+```
+ninja-win.zip [다운로드](https://github.com/ninja-build/ninja/releases/download/v1.13.2/ninja-win.zip)
+```
+C:\tools\ninja\ninja.exe
+setx PATH "%PATH%;C:\tools\ninja"
+```
+혹은 windows\system3 2에 복사
+```
+where ninja.exe
+```
+C:\vcpkg>where ninja.exe  
+C:\Windows\System32\ninja.exe  
+```
+set VCPKG_FORCE_SYSTEM_BINARIES=1
+vcpkg install vtk:x64-windows
+```
